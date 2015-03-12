@@ -1,0 +1,125 @@
+.wrap {
+	border:1px solid red;
+	padding:5px;
+	margin-top:14px;
+	padding-left:15px !important;
+	min-height:400px;
+}
+.cfc_footer {
+	text-align:center;
+	color:#91848A;
+	font-size:12px;
+}
+
+#cfc_content {
+	width:100%;
+}
+
+.panel{
+	margin-bottom:20px;
+	background-color:#fff;
+	border-radius:4px;
+	-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
+	box-shadow:0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-primary{
+	border-color:#428bca;
+}
+
+.panel-primary>.panel-heading{
+	background-color:#428bca;
+}
+
+.panel-primary>.panel-heading+.panel-collapse>.panel-body{
+	border-top-color:#428bca;
+}
+
+.panel-primary>.panel-heading .badge{
+	color:#428bca;
+	background-color:#fff;
+}
+
+.panel-primary>.panel-footer+.panel-collapse>.panel-body{
+	border-bottom-color:#428bca;
+}
+
+.panel-primary{
+	background-color:rgba(255,255,255,.95);
+	margin-top:1.5em
+}
+
+.panel-primary>.panel-heading{
+	color:#fff;
+	background-color:rgba(14,20,48,.75);
+	border:none;
+}
+
+.panel-heading{
+	padding:10px 15px;
+	border-bottom:1px solid transparent;
+	border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	color: #FFF;
+	background-color: rgba(14, 20, 48, 0.75);
+	border: medium none;
+	font-size: 24px;
+	font-family: Gudea,sans-serif;	
+	line-height: 1.4;
+}
+
+.subheaderExtraSpace{
+	font-size: 28px;
+	font-family: Roboto,sans-serif;
+	line-height: 2.3em;
+	color: #333;
+}
+
+.small{
+	font-size: 16px;
+    font-family: Gudea,sans-serif;
+    line-height: 1.42857;
+    color: #333;	
+}
+
+td {
+	padding: 0px 15px 10px 0px;
+	font-size: 20px;
+}
+
+.panel-body {
+    padding: 1em 0.8em 1em 1em;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin: 4px 0px 0px;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0px;
+}
+
+.contact-checkbox {
+    vertical-align: middle;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: not-allowed;
+    background-color: #EEE;
+    opacity: 1;
+}
+
+.form-control {
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}

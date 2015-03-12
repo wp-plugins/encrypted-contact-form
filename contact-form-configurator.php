@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Encrypted Contact Form
 	Plugin URI: https://i.cx/?icx.screen=formCreator
-	Version: 1.0.1
+	Version: 1.0.3
  	Author: EveryBit Inc.
  	Author URI:  https://everybit.com
 	Description: Secure contact form for WordPress. Uses end-to-end encryption to send information from your contact form. Not even your hosting provider can view the content.
@@ -68,7 +68,7 @@ function conformconf_settings(){
 	$existing_page = isset( $_POST['existing_page'] ) ? (int) $_POST['existing_page'] : false;	
 	
 	if ( $page_name or $existing_page ){
-		$response = file_get_contents( "https://i.cx/api/users/api.php?type=getUser&username=" . stripslashes( $_POST['display_name'] ) );
+		$response = file_get_contents( "https://i.cx/api/users/api.php?type=getUser&username=" . stripslashes( $_POST['recipient_name'] ) );
 		if ( $response ){
 			$response_json = json_decode( $response );
 			if ( isset($response_json->FAIL) ){

@@ -1,0 +1,111 @@
+<form method="post" action="options-general.php?page=conformconf">
+    %NONCE%
+    <div class="panel panel-primary panel-pricing">
+        <div class="panel-heading">Contact Form Creator</div>
+        <div class="panel-body">
+            <span class="subheaderExtraSpace">Step 1: Choose fields to include</span>
+            <br>
+            <div>
+                <table style="padding:10px;border:0;">
+                    <tbody>
+                    <tr>
+                        <td><u><strong>Field</strong></u></td>
+                        <td><u><strong>Optional</strong></u></td>
+                        <td><u><strong>Required</strong></u></td>
+                        <td><u><strong>Off</strong></u></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                        <td><strong>Name</strong></td>
+                        <td><input class="contact-checkbox" %NOP% id="nameoptional" name="name" value="optional" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %NRE% id="namerequired" name="name" value="required" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %NOF% id="nameoff"  name="name" value="off" type="radio" onChange="handleRegenOptions();"></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                        <td><strong>Email</strong></td>
+                        <td><input class="contact-checkbox" %EOP% id="emailoptional" name="email" value="optional" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %ERE% id="emailrequired" name="email" value="required" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %EOF% id="emailoff" name="email" value="off" type="radio" onChange="handleRegenOptions();"></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                        <td><strong>Phone</strong></td>
+                        <td><input class="contact-checkbox" %POP% id="phoneoptional" name="phone" value="optional" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %PRE% id="phonerequired" name="phone" value="required" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %POF% id="phoneoff"  name="phone" value="off" type="radio" onChange="handleRegenOptions();"></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                        <td><strong>Message</strong></td>
+                        <td><input class="contact-checkbox" %MOP% id="messageoptional" name="message" value="optional" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %MRE% id="messagerequired" name="message" value="required" type="radio" onChange="handleRegenOptions();"></td>
+                        <td><input class="contact-checkbox" %MOF% id="messageoff" name="message" value="off" type="radio" onChange="handleRegenOptions();"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+            <span class="subheaderExtraSpace">Step 2: Set form recipient</span>
+            <br>
+
+            <span id="cfc_username_error" style="color:red;font-size:16px;%ERRD1%">Username Not Exists</span>
+            <table style="padding:5px;border:0;width:600px;">
+                <tbody>
+                <tr>
+                    <td><strong>Display name:</strong></td>
+                    <td><strong>Recipient username:</strong></td>
+                </tr>
+                <tr>
+                    <td><input name="display_name" style="width:80%;padding:7px;" value="%DISN%" id="cfcdisplayname" type="text" onkeyup="setUsername();"></td>
+                    <td><input name="recipient_name" readonly="" value="%RECN%" style="width:80%;padding:7px;" type="text" id="cfcdisplayparsed"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="small">
+                The contents of your contact form will be encrypted and sent to this I.CX username.
+                Your display name will be shown on the "Send" button of the form.
+                You can use capital letters and add spaces in your display name, but it must be otherwise identical to your username.
+                This ensures that no two users will have the same display name.
+            </div>
+
+            <br/>
+            <span class="subheaderExtraSpace">Step 3: Preview and test your form</span>
+            <br/>
+
+            <div class="cfc-iframe-holder">
+                <iframe id="cfc-preview" src="https://i.cx/secureForm.html?id_name=name&amp;element_name=text&amp;require_name=true&amp;id_email=email&amp;element_email=text&amp;validate_email=email&amp;id_message=message&amp;element_message=textarea&amp;require_message=true&amp;toUser=Smugdarkseagreenkitty" frameborder="0" height="500" width="100%"></iframe>
+            </div>
+            <span class="subheaderExtraSpace">Step 4: Copy embed code</span>
+            <br/>
+
+            <div class="cfc-embed-url-holder">
+                <div class="form-group">
+                    <input value="<iframe src=&quot;undefined&quot; width=&quot;600&quot; height=&quot;500&quot;></iframe>" readonly="" class="form-control" id="cfcpreview" type="text"  onfocus="this.select();" onmouseup="return false;" />
+                </div>
+            </div>
+            <br/>
+            <span class="subheaderExtraSpace">Step 5: Create a page with form iframe embedded</span><br/>
+            <span class="small">Page Name:</span> <br/>
+            <input id="pageinput_text" value="%PGNM%" type="text" size="40" name="cfc_page_name" pattern=".{2,}" required title="2 characters minimum" />
+            <span id="cfc_page_error" style="color:red;font-size:16px;%ERRD2%">Page with this name already exists</span>
+            <select id="pageinput_select" name="existing_page" style="display:none;margin:7px;">
+                %OPTS%
+            </select><br/>
+            <div id='cfc_selection' style="padding:10px;%DISPLAY%">
+                <input type="radio" name="cfc_selection" value="new" onclick="switchPage('new');" id="cfc_new" checked /> <label for="cfc_new">New Page</label>
+                &nbsp;&nbsp;&nbsp;
+                <input type="radio" name="cfc_selection" value="upd" onclick="switchPage('upd');" id="cfc_upd" /> <label for="cfc_upd">Update Existing</label>
+            </div>
+            <input type="hidden" name="iframe_url" id="iframe_url" />
+            <input type="submit" id="cfc_createpage" class="button-primary" value="Create Page" style="margin-top:10px" />
+            <br/>
+            <span class="subheaderExtraSpace">Step 6 (optional): Sign up for email notifications</span>
+            <br>
+            <span class="small">If you would like to be notified by email every time someone fills out your contact form, </span>
+            <a href="https://i.cx/?icx.screen=dashboard" target="_blank">visit your I.CX dashboard</a>
+            <span class="small"> to set Email notifications.</span>
+        </div>
+    </div>
+</form>
+<script>
+    handleRegenOptions();
+</script>

@@ -3,7 +3,7 @@ Contributors: everybit, eurocodersl
 Tags: contact, messaging, secure, encryption
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0.4
+Stable tag: 1.1
 License: MIT
 
 Secure contact form for WordPress. Uses end-to-end encryption to send user information. Not even your hosting provider can view the content. 
@@ -19,6 +19,9 @@ Extract the zip file and drop the contents in the wp-content/plugins/ directory 
 See https://www.youtube.com/watch?v=zk1aeW8aawU for a quick installation walkthrough.
 
 == Changelog ==
+
+= 1.1 =
+Detection of CSRF attacks added
 
 = 1.0.4 =
 Link to video install guide
